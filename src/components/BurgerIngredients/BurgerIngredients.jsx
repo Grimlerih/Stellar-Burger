@@ -22,7 +22,9 @@ export function BurgerIngredients({ data }) {
               }
             })
             .map((item) => (
-              <li className={styles.ingredientsItem}>
+              <li 
+              className={styles.ingredientsItem}
+              key={item._id}>
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
                   <p className="text text_type_main-default">{item.price}</p>
@@ -49,7 +51,10 @@ export function BurgerIngredients({ data }) {
               }
             })
             .map((item) => (
-              <li className={styles.ingredientsItem}>
+              <li 
+              className={styles.ingredientsItem}
+              key={item._id}
+              >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
                   <p className="text text_type_main-default">{item.price}</p>
@@ -76,7 +81,10 @@ export function BurgerIngredients({ data }) {
               }
             })
             .map((item) => (
-              <li className={styles.ingredientsItem}>
+              <li 
+              className={styles.ingredientsItem}
+              key={item._id}
+              >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
                   <p className="text text_type_main-default">{item.price}</p>

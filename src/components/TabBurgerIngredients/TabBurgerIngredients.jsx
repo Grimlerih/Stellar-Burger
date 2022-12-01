@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
 
-export const TabBurgerIngredients = () => {
+export function TabBurgerIngredients() {
   const [current, setCurrent] = React.useState("one");
   return (
     <div style={{ display: "flex" }}>
