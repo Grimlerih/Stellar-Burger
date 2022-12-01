@@ -13,6 +13,7 @@
 
 .scrollbarContainer {
     height: 716px;
+    margin-top: 116px;
     overflow-y: scroll;
 }
 

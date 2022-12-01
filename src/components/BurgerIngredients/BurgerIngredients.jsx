@@ -9,9 +9,9 @@ import {
 export function BurgerIngredients({ data }) {
   return (
     <section className={styles.section}>
-      <h1 className="text text_type_main-large pt-5">Соберите бургер</h1>
+      <h1 className="text text_type_main-large mt-10">Соберите бургер</h1>
       {/* <TabBurgerIngredients/> */}
-      <div className={`mt-10 ${styles.scrollbarContainer}`}>
+      <div className={` ${styles.scrollbarContainer}`}>
       <article>
         <h2 className="text text_type_main-medium">Булки</h2>
         <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
@@ -27,7 +27,7 @@ export function BurgerIngredients({ data }) {
               key={item._id}>
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
-                  <p className="text text_type_main-default">{item.price}</p>
+                  <p className="text text_type_main-default mr-2">{item.price}</p>
                   <CurrencyIcon type="primary" />
                 </div>
                 <p
@@ -57,7 +57,7 @@ export function BurgerIngredients({ data }) {
               >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
-                  <p className="text text_type_main-default">{item.price}</p>
+                  <p className="text text_type_main-default mr-2">{item.price}</p>
                   <CurrencyIcon type="primary" />
                 </div>
                 <p
@@ -87,7 +87,7 @@ export function BurgerIngredients({ data }) {
               >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
-                  <p className="text text_type_main-default">{item.price}</p>
+                  <p className="text text_type_main-default mr-2">{item.price}</p>
                   <CurrencyIcon type="primary" />
                 </div>
                 <p

@@ -42,3 +42,19 @@
 .burgerConstList::-webkit-scrollbar-thumb {
     background-color: #8585ad;
 }
+
+.priceContainer{
+    width: 568px;
+    justify-content: end;
+    display: flex;
+    flex-direction: row;
+    margin: 40px 16px 0 0;
+    align-items: center;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 40px;
+}

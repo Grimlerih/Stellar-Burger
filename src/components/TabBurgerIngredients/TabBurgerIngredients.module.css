@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    padding: 0;
+    width: 600px;
+    height: 56px;
+    border-bottom: 1px #d40000;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    cursor: pointer;
+}

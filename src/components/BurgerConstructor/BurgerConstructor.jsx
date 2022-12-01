@@ -3,6 +3,8 @@ import styles from "../BurgerConstructor/BurgerConstructor.module.css";
 import {
   ConstructorElement,
   DragIcon,
+  CurrencyIcon,
+  Button
 } from "@ya.praktikum/react-developer-burger-ui-components";
 
 export function BurgerConstructor({ data }) {
@@ -12,9 +14,9 @@ export function BurgerConstructor({ data }) {
         <ConstructorElement
           type="top"
           isLocked={true}
-          text={""}
+          text={"Краторная булка N-200i (верх)"}
           price={200}
-          thumbnail=""
+          thumbnail="https://code.s3.yandex.net/react/code/bun-02-mobile.png"
         />
         <ul className={styles.burgerConstList}>
           {data
@@ -25,7 +27,7 @@ export function BurgerConstructor({ data }) {
             })
             .map((item) => (
               <li key={item._id} className={styles.burgerConstItem}>
-                <DragIcon type="primary" />
+                <DragIcon type="primary"/>
                 <ConstructorElement
                   text={item.name}
                   price={item.price}
@@ -38,10 +40,20 @@ export function BurgerConstructor({ data }) {
         <ConstructorElement
           type="bottom"
           isLocked={true}
-          text="dqdq"
+          text="Краторная булка N-200i (низ)"
           price={200}
-          thumbnail="dwqdqw"
+          thumbnail="https://code.s3.yandex.net/react/code/bun-02-mobile.png"
         />
+      </div>
+
+      <div className={styles.priceContainer}>
+      <div className={styles.price}>
+        <p className="text text_type_digits-medium mr-2">7890</p>
+        <CurrencyIcon type="primary"  />
+        </div>
+        <Button htmlType="button" type="primary" size="large">
+        Нажми на меня
+        </Button>
       </div>
     </section>
   );
