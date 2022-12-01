@@ -6,6 +6,7 @@ import {
   CurrencyIcon,
   Button
 } from "@ya.praktikum/react-developer-burger-ui-components";
+import PropTypes from 'prop-types';
 
 export function BurgerConstructor({ data }) {
   return (
@@ -57,4 +58,10 @@ export function BurgerConstructor({ data }) {
       </div>
     </section>
   );
+}
+
+BurgerConstructor.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.number,
 }

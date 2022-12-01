@@ -2,7 +2,7 @@ import styles from "./App.module.css";
 import { AppHeader } from "../AppHeader/AppHeader";
 import { BurgerIngredients } from "../BurgerIngredients/BurgerIngredients";
 import { BurgerConstructor } from "../BurgerConstructor/BurgerConstructor";
-import { Api } from "./api";
+import { Api } from "../utils/api";
 
 function App() {
   return (
