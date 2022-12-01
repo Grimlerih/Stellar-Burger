@@ -11,9 +11,9 @@ export function BurgerIngredients({ data }) {
     <section className={styles.section}>
       <h1 className="text text_type_main-large pt-5">Соберите бургер</h1>
       {/* <TabBurgerIngredients/> */}
-
-      <article className="mt-10">
-        <h2 className="text text_type_main-medium mt-10">Булки</h2>
+      <div className={`mt-10 ${styles.scrollbarContainer}`}>
+      <article>
+        <h2 className="text text_type_main-medium">Булки</h2>
         <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
           {data
             .filter((obj) => {
@@ -100,6 +100,7 @@ export function BurgerIngredients({ data }) {
             ))}
         </ul>
       </article>
+      </div>
     </section>
   );
 }

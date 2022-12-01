@@ -27,6 +27,8 @@
     padding: 0;
     overflow-y: scroll;
     padding-right: 8px;
+    margin: 0;
+    max-height: 464px;
 }
 
 .burgerConstList::-webkit-scrollbar {
