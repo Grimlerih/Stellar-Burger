@@ -1,20 +1,21 @@
 import React from "react";
 import styles from "./BurgerIngredients.module.css";
-import { TabBurgerIngredients } from "../TabBurgerIngredients/TabBurgerIngredients";
+import  TabBurgerIngredients  from "../TabBurgerIngredients/TabBurgerIngredients";
 import {
   Counter,
   CurrencyIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 
 export function BurgerIngredients({ data }) {
+
   return (
-    <section className={styles.section}>
-      <h1 className="text text_type_main-large mt-10">Соберите бургер</h1>
-      {/* <TabBurgerIngredients/> */}
+    <section className={`mb-10 ${styles.section}`}>
+      <h1 className="text text_type_main-large mt-10 mb-5">Соберите бургер</h1>
+      <TabBurgerIngredients />
       <div className={` ${styles.scrollbarContainer}`}>
       <article>
         <h2 className="text text_type_main-medium">Булки</h2>
-        <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
+        <ul className={`mt-6  ${styles.ingredients}`}>
           {data
             .filter((obj) => {
               if (obj.type === "bun") {

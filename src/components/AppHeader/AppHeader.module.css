@@ -1,8 +1,10 @@
 .header {
     width: 100%;
+    max-width: 1920px;
     height: 88px;
     background: #1C1C21;
     display: flex;
+    margin-top: 40px;
 }
 
 .container {
