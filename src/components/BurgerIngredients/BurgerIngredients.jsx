@@ -108,7 +108,6 @@ export function BurgerIngredients({ data }) {
 }
 
 BurgerIngredients.propTypes = {
-  name: PropTypes.string,
-  image: PropTypes.string,
-  price: PropTypes.number,
+  data: PropTypes.array
 }
+

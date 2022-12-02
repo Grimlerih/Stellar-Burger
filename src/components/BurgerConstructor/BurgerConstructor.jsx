@@ -22,7 +22,7 @@ export function BurgerConstructor({ data }) {
         <ul className={styles.burgerConstList}>
           {data
             .filter((obj) => {
-              if (obj.type === "sauce" || "main") {
+              if (obj.type !== "bun" ) {
                 return obj;
               }
             })
@@ -61,7 +61,5 @@ export function BurgerConstructor({ data }) {
 }
 
 BurgerConstructor.propTypes = {
-  name: PropTypes.string,
-  image: PropTypes.string,
-  price: PropTypes.number,
+  data: PropTypes.array
 }
