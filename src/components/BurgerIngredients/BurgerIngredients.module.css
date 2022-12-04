@@ -1,7 +1,6 @@
 .img {
     width: 240px;
     height: 120px;
-    background-image: url(../../images/bun-02.png);
     justify-self: flex-start;
 }
 
