@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./BurgerIngredients.module.css";
 import  TabBurgerIngredients  from "../TabBurgerIngredients/TabBurgerIngredients";
 import {

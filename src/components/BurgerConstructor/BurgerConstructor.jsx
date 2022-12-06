@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import styles from "../BurgerConstructor/BurgerConstructor.module.css";
 import {
   ConstructorElement,
@@ -7,8 +7,12 @@ import {
   Button
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from 'prop-types';
+import {Modal} from '../Modal/Modal'
+import {OrderDetails} from '../OrderDetails/OrderDetails'
 
 export function BurgerConstructor({ data }) {
+  const[openModal, setOpenModal] = useState(false);
+
   return (
     <section className={styles.burgerConstSection}>
       <div className={styles.burgerConstContainer}>
@@ -52,10 +56,18 @@ export function BurgerConstructor({ data }) {
         <p className="text text_type_digits-medium mr-2">7890</p>
         <CurrencyIcon type="primary"  />
         </div>
-        <Button htmlType="button" type="primary" size="large">
+        <Button htmlType="button" type="primary" size="large" onClick={() => setOpenModal(true)}>
         Нажми на меня
         </Button>
       </div>
+
+      {
+        openModal && (
+          <Modal setOpenModal={setOpenModal}>
+          <OrderDetails/>
+          </Modal>
+          )
+      }
     </section>
   );
 }

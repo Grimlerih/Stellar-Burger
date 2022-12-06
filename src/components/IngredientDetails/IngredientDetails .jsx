@@ -6,7 +6,7 @@ export const IngredientDetails  = ({item}) => {
   return (
     <div className={styles.container}>
         <h2 className={`text text_type_main-large ${styles.title}`}>Детали ингридиента</h2>
-        <img className={styles.img} src={item.image_large} />
+        <img className={styles.img} src={item.image_large} alt={item.name}/>
         <p className="text text_type_main-medium mb-8">{item.name}</p>
         <ul className={`${styles.IngredientList} text text_type_main-default text_color_inactive`}>
             <li className={styles.Ingredient}>
@@ -30,6 +30,8 @@ export const IngredientDetails  = ({item}) => {
   )
 }
 
-IngredientDetails .propTypes = {}
+IngredientDetails .propTypes = {
+  item: PropTypes.object
+}
 
    
