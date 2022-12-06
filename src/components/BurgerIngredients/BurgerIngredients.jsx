@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./BurgerIngredients.module.css";
 import  TabBurgerIngredients  from "../TabBurgerIngredients/TabBurgerIngredients";
 import {
@@ -6,8 +6,15 @@ import {
   CurrencyIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from 'prop-types';
+import {Modal} from '../Modal/Modal'
 
 export function BurgerIngredients({ data }) {
+
+  const[openModal, setOpenModal] = useState(false);
+
+  const handleModalOpen = () => {
+    setOpenModal(true);
+  }
 
   return (
     <section className={`mb-10 ${styles.section}`}>
@@ -26,7 +33,8 @@ export function BurgerIngredients({ data }) {
             .map((item) => (
               <li 
               className={styles.ingredientsItem}
-              key={item._id}>
+              key={item._id}
+              onClick={() => handleModalOpen()}>
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
                   <p className="text text_type_main-default mr-2">{item.price}</p>
@@ -56,6 +64,7 @@ export function BurgerIngredients({ data }) {
               <li 
               className={styles.ingredientsItem}
               key={item._id}
+              onClick={() => handleModalOpen()}
               >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
@@ -86,6 +95,7 @@ export function BurgerIngredients({ data }) {
               <li 
               className={styles.ingredientsItem}
               key={item._id}
+              onClick={() => handleModalOpen()}
               >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
@@ -103,6 +113,10 @@ export function BurgerIngredients({ data }) {
         </ul>
       </article>
       </div>
+      {openModal &&(
+        <Modal setOpenModal={setOpenModal} children={'123'}>
+        </Modal>
+      )}
     </section>
   );
 }

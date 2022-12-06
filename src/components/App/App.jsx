@@ -4,7 +4,6 @@ import { AppHeader } from "../AppHeader/AppHeader";
 import { BurgerIngredients } from "../BurgerIngredients/BurgerIngredients";
 import { BurgerConstructor } from "../BurgerConstructor/BurgerConstructor";
 import { getData } from "../utils/Api";
-import {mockData} from '../utils/mockData'
 
 function App() {
 
@@ -19,8 +18,8 @@ useEffect(() => {
     <div className={styles.App}>
       <AppHeader />
       <main className={styles.container}>
-        <BurgerIngredients data={ingredients } />
-        <BurgerConstructor data={ingredients } />
+        <BurgerIngredients data={ingredients} />
+        <BurgerConstructor data={ingredients} />
       </main>
     </div>
   );
