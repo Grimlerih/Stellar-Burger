@@ -13,7 +13,7 @@ export const Modal = ({setOpenModal, children}) => {
     <>
         <ModalOverlay closeModalOverlay={closeModal}/>
         <div className={styles.container}>
-        <button>
+        <button className={styles.closeButton}>
           <CloseIcon type="primary" />
         </button>
         {children}

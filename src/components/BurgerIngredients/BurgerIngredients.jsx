@@ -7,13 +7,16 @@ import {
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import PropTypes from 'prop-types';
 import {Modal} from '../Modal/Modal'
+import {IngredientDetails} from '../IngredientDetails/IngredientDetails '
 
 export function BurgerIngredients({ data }) {
 
   const[openModal, setOpenModal] = useState(false);
+  const[ingridient, setIngridient] = useState();
 
-  const handleModalOpen = () => {
+  const handleModalOpen = (item) => {
     setOpenModal(true);
+    setIngridient(item);
   }
 
   return (
@@ -34,7 +37,7 @@ export function BurgerIngredients({ data }) {
               <li 
               className={styles.ingredientsItem}
               key={item._id}
-              onClick={() => handleModalOpen()}>
+              onClick={() => handleModalOpen(item)}>
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
                   <p className="text text_type_main-default mr-2">{item.price}</p>
@@ -64,7 +67,7 @@ export function BurgerIngredients({ data }) {
               <li 
               className={styles.ingredientsItem}
               key={item._id}
-              onClick={() => handleModalOpen()}
+              onClick={() => handleModalOpen(item)}
               >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
@@ -95,7 +98,7 @@ export function BurgerIngredients({ data }) {
               <li 
               className={styles.ingredientsItem}
               key={item._id}
-              onClick={() => handleModalOpen()}
+              onClick={() => handleModalOpen(item)}
               >
                 <img className={styles.img} src={item.image} alt={item.name} />
                 <div className={`${styles.price} mt-1 mb-1`}>
@@ -113,8 +116,9 @@ export function BurgerIngredients({ data }) {
         </ul>
       </article>
       </div>
-      {openModal &&(
-        <Modal setOpenModal={setOpenModal} children={'123'}>
+      {openModal && ingridient &&(
+        <Modal setOpenModal={setOpenModal}>
+        <IngredientDetails item={ingridient}/>
         </Modal>
       )}
     </section>
