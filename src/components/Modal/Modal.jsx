@@ -3,6 +3,7 @@ import styles from './Modal.module.css'
 import {ModalOverlay} from '../ModalOverlay/ModalOverlay'
 import {CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import {createPortal} from 'react-dom'
+import PropTypes from 'prop-types';
 
 export const Modal = ({setOpenModal, children}) => {
 
@@ -31,4 +32,9 @@ export const Modal = ({setOpenModal, children}) => {
         </div>
     </>, document.querySelector("#modal")
   )
+}
+
+ModalOverlay.propTypes = {
+  setOpenModal: PropTypes.func,
+  children: PropTypes.element
 }

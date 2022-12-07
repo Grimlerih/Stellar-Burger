@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styles from './OrderDetails.module.css'
 import img from '../../images/done.png'
 
@@ -17,4 +16,4 @@ export const OrderDetails = () => {
   )
 }
 
-OrderDetails.propTypes = {}
+
