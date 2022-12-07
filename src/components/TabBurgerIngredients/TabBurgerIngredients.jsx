@@ -2,10 +2,12 @@ import {useState} from "react";
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from '../TabBurgerIngredients/TabBurgerIngredients.module.css'
 
- const TabBurgerIngredients = () => {
+ const TabBurgerIngredients = ({handleSwitch}) => {
   const [current, setCurrent] = useState("buns");
 
   const onClickTab = (value) => {
+    console.log('1');
+    handleSwitch(value);
     setCurrent(value);
   }
 

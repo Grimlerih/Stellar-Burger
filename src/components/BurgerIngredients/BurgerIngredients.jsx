@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./BurgerIngredients.module.css";
 import  TabBurgerIngredients  from "../TabBurgerIngredients/TabBurgerIngredients";
 import {
@@ -14,6 +14,25 @@ export function BurgerIngredients({ data }) {
   const[openModal, setOpenModal] = useState(false);
   const[ingridient, setIngridient] = useState();
 
+  const refBuns = useRef();
+  const refSauces = useRef();
+  const refMain = useRef();
+
+  const handleSwitch = (value) => {
+    switch (value) {
+      case "buns":
+        refBuns.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "sauces":
+        refSauces.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "main":
+        refMain.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      // no default
+    }
+  };
+
   const handleModalOpen = (item) => {
     setOpenModal(true);
     setIngridient(item);
@@ -22,10 +41,13 @@ export function BurgerIngredients({ data }) {
   return (
     <section className={`mb-10 ${styles.section}`}>
       <h1 className="text text_type_main-large mt-10 mb-5">Соберите бургер</h1>
-      <TabBurgerIngredients />
+      <TabBurgerIngredients handleSwitch={handleSwitch}/>
       <div className={` ${styles.scrollbarContainer}`}>
       <article>
-        <h2 className="text text_type_main-medium">Булки</h2>
+        <h2 
+        className="text text_type_main-medium"
+        ref = {refBuns}
+        >Булки</h2>
         <ul className={`mt-6  ${styles.ingredients}`}>
           {data
             .filter((obj) => {
@@ -55,7 +77,10 @@ export function BurgerIngredients({ data }) {
       </article>
 
       <article className="mt-10">
-        <h2 className="text text_type_main-medium mt-10">Соусы</h2>
+        <h2 
+        className="text text_type_main-medium mt-10"
+        ref = {refSauces}
+        >Соусы</h2>
         <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
           {data
             .filter((obj) => {
@@ -86,7 +111,10 @@ export function BurgerIngredients({ data }) {
       </article>
 
       <article className="mt-10">
-        <h2 className="text text_type_main-medium mt-10">Начинки</h2>
+        <h2 
+        className="text text_type_main-medium mt-10"
+        ref = {refMain}
+        >Начинки</h2>
         <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
           {data
             .filter((obj) => {
