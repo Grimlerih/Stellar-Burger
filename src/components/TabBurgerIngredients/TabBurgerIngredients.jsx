@@ -28,7 +28,7 @@ const TabBurgerIngredients = ({ handleSwitch }) => {
 };
 
 TabBurgerIngredients.propTypes = {
-  handleSwitch: PropTypes.func,
+  handleSwitch: PropTypes.func.isRequired,
 };
 
 export default TabBurgerIngredients;

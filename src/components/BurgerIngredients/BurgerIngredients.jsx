@@ -169,5 +169,5 @@ export function BurgerIngredients({ data }) {
 }
 
 BurgerIngredients.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.array.isRequired,
 };
