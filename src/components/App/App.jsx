@@ -9,9 +9,13 @@ function App() {
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-    getData().then((res) => {
-      setIngredients(res.data);
-    });
+    getData()
+      .then((res) => {
+        setIngredients(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
