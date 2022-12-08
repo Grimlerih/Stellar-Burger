@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import { AppHeader } from "../AppHeader/AppHeader";
 import { BurgerIngredients } from "../BurgerIngredients/BurgerIngredients";
@@ -6,13 +6,13 @@ import { BurgerConstructor } from "../BurgerConstructor/BurgerConstructor";
 import { getData } from "../utils/Api";
 
 function App() {
+  const [ingredients, setIngredients] = useState([]);
 
-const [ingredients, setIngredients] = useState([])
-
-useEffect(() => {
-  getData().then((res)=>{setIngredients(res.data)})
-},[])
-
+  useEffect(() => {
+    getData().then((res) => {
+      setIngredients(res.data);
+    });
+  }, []);
 
   return (
     <div className={styles.App}>

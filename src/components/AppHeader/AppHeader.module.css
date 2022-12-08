@@ -1,51 +1,51 @@
 .header {
-    width: 100%;
-    max-width: 1920px;
-    height: 88px;
-    background: #1C1C21;
-    display: flex;
-    margin-top: 40px;
+  width: 100%;
+  max-width: 1920px;
+  height: 88px;
+  background: #1c1c21;
+  display: flex;
+  margin-top: 40px;
 }
 
 .container {
-    max-width: 1280px;
-    width: 100%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(3,1fr);
-    margin: 0 auto;
-    justify-items: center;
+  max-width: 1280px;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  justify-items: center;
 }
 
 .navButton {
-    background-color: inherit;
-    border: none;
-    border-radius: 48px;
-    margin: 0;
-    color: #F2F2F3;
-    align-items: center;
-    display: flex;
-    cursor: pointer;
-    column-gap: 8px;
-    transition: all 0.25s ease-in;
+  background-color: inherit;
+  border: none;
+  border-radius: 48px;
+  margin: 0;
+  color: #f2f2f3;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  column-gap: 8px;
+  transition: all 0.25s ease-in;
 }
 
-.navButton:hover{
-    opacity: 0.8;
-    transform: scale(1.05);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.navButton:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.nav{
-    justify-self: flex-start;
-    min-width: 383px;
-    justify-content: space-between;
-    height: 56px;
-    flex-direction: row;
-    display: flex;
-    align-items: center;
+.nav {
+  justify-self: flex-start;
+  min-width: 383px;
+  justify-content: space-between;
+  height: 56px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
 }
 
 .profileButton {
-    justify-self: flex-end;
+  justify-self: flex-end;
 }

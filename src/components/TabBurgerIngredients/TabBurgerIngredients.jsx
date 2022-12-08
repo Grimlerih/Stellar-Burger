@@ -1,16 +1,16 @@
-import {useState} from "react";
+import { useState } from "react";
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
-import styles from '../TabBurgerIngredients/TabBurgerIngredients.module.css'
-import PropTypes from 'prop-types';
+import styles from "../TabBurgerIngredients/TabBurgerIngredients.module.css";
+import PropTypes from "prop-types";
 
- const TabBurgerIngredients = ({handleSwitch}) => {
+const TabBurgerIngredients = ({ handleSwitch }) => {
   const [current, setCurrent] = useState("buns");
 
   const onClickTab = (value) => {
-    console.log('1');
+    console.log("1");
     handleSwitch(value);
     setCurrent(value);
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -25,10 +25,10 @@ import PropTypes from 'prop-types';
       </Tab>
     </div>
   );
-}
+};
 
 TabBurgerIngredients.propTypes = {
-  handleSwitch: PropTypes.func
-}
+  handleSwitch: PropTypes.func,
+};
 
 export default TabBurgerIngredients;

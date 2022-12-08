@@ -1,60 +1,60 @@
 .burgerConstSection {
-    width: 600px;
-    height: 912px;
+  width: 600px;
+  height: 912px;
 }
 
 .burgerConstContainer {
-    width: 600px;
-    max-height: 696px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 100px;
-    align-items: center;
-    box-sizing: border-box;
+  width: 600px;
+  max-height: 696px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 100px;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-.burgerConstItem{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.burgerConstItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.burgerConstList{
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    overflow-y: scroll;
-    padding-right: 8px;
-    margin: 0;
-    max-height: 464px;
+.burgerConstList {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow-y: scroll;
+  padding-right: 8px;
+  margin: 0;
+  max-height: 464px;
 }
 
 .burgerConstList::-webkit-scrollbar {
-    width:  8px;
+  width: 8px;
 }
 
 .burgerConstList::-webkit-scrollbar-track {
-    background: #2f2f37;
+  background: #2f2f37;
 }
 
 .burgerConstList::-webkit-scrollbar-thumb {
-    background-color: #8585ad;
+  background-color: #8585ad;
 }
 
-.priceContainer{
-    width: 568px;
-    justify-content: end;
-    display: flex;
-    flex-direction: row;
-    margin: 40px 16px 0 0;
-    align-items: center;
+.priceContainer {
+  width: 568px;
+  justify-content: end;
+  display: flex;
+  flex-direction: row;
+  margin: 40px 16px 0 0;
+  align-items: center;
 }
 
 .price {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 40px;
 }
