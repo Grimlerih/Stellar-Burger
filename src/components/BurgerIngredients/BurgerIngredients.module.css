@@ -1,0 +1,68 @@
+.img {
+  width: 240px;
+  height: 120px;
+  justify-self: flex-start;
+}
+
+.section {
+  width: 600px;
+  max-height: 912px;
+  background-color: inherit;
+}
+
+.scrollbarContainer {
+  height: 716px;
+  margin-top: 40px;
+  overflow-y: scroll;
+}
+
+.scrollbarContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbarContainer::-webkit-scrollbar-track {
+  background: #2f2f37;
+}
+
+.scrollbarContainer::-webkit-scrollbar-thumb {
+  background-color: #8585ad;
+}
+
+.ingredients {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 272px);
+  gap: 32px 24px;
+  justify-content: center;
+}
+
+.ingredientsItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ingredientsItem {
+  width: 272px;
+  height: 208px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  background-color: inherit;
+  transition: all 0.25s ease-in;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  height: 24px;
+}
+
+.ingredientsName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 272px;
+  text-align: center;
+  height: 48px;
+}
