@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "../BurgerConstructor/BurgerConstructor.module.css";
 import {
   ConstructorElement,
@@ -9,9 +9,11 @@ import {
 import PropTypes from "prop-types";
 import { Modal } from "../Modal/Modal";
 import { OrderDetails } from "../OrderDetails/OrderDetails";
+import { BurgerContext } from "../services/burgerContext.js";
 
-export function BurgerConstructor({ data }) {
+export function BurgerConstructor() {
   const [openModal, setOpenModal] = useState(false);
+  const dataIngredients = useContext(BurgerContext);
 
   return (
     <section className={styles.burgerConstSection}>
@@ -24,7 +26,7 @@ export function BurgerConstructor({ data }) {
           thumbnail="https://code.s3.yandex.net/react/code/bun-02-mobile.png"
         />
         <ul className={styles.burgerConstList}>
-          {data
+          {dataIngredients
             .filter((obj) => {
               if (obj.type !== "bun") {
                 return obj;
@@ -75,6 +77,6 @@ export function BurgerConstructor({ data }) {
   );
 }
 
-BurgerConstructor.propTypes = {
-  data: PropTypes.array.isRequired,
-};
+// BurgerConstructor.propTypes = {
+//   dataIngredients: PropTypes.array.isRequired,
+// };
