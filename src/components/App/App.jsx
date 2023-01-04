@@ -12,6 +12,7 @@ function App() {
     getData()
       .then((res) => {
         setIngredients(res.data);
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
