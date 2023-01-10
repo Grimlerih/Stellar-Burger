@@ -7,15 +7,12 @@ import { getData } from "../utils/Api";
 import { BurgerContext } from "../services/burgerContext.js";
 
 function App() {
-  const [dataIngredients, setDataIngredients] = useState({
-    ingredients: [],
-  });
+  const [dataIngredients, setDataIngredients] = useState([]);
 
   useEffect(() => {
     getData()
       .then((res) => {
-        setDataIngredients({ ...dataIngredients, ingredients: res.data });
-        console.log(res.data);
+        setDataIngredients([...res.data]);
       })
       .catch((err) => {
         console.log(err);
@@ -25,9 +22,9 @@ function App() {
   return (
     <div className={styles.App}>
       <AppHeader />
-      {dataIngredients.ingredients && (
+      {dataIngredients.length > 0 && (
         <main className={styles.container}>
-          <BurgerContext.Provider value={dataIngredients.ingredients}>
+          <BurgerContext.Provider value={dataIngredients}>
             <BurgerIngredients />
             <BurgerConstructor />
           </BurgerContext.Provider>
