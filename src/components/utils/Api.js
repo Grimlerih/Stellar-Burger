@@ -1,4 +1,4 @@
-const url = "https://norma.nomoreparties.space/api/ingredients";
+const url = "https://norma.nomoreparties.space/api";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -12,5 +12,17 @@ function request(url, options) {
 }
 
 export function getData() {
-  return request(url);
+  return request(`${url}/ingredients`);
+}
+
+export function orderCreationApi(idIngredients) {
+  return request(`${url}/orders`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      ingredients: idIngredients,
+    }),
+  });
 }

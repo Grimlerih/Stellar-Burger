@@ -10,10 +10,23 @@ import PropTypes from "prop-types";
 import { Modal } from "../Modal/Modal";
 import { OrderDetails } from "../OrderDetails/OrderDetails";
 import { BurgerContext } from "../services/burgerContext.js";
+import { orderCreationApi } from "../utils/Api.js";
 
 export function BurgerConstructor() {
-  const [openModal, setOpenModal] = useState(false);
+  const [modalState, setModalState] = useState(false);
+  const [orderNumState, setorderNumState] = useState();
   const dataIngredients = useContext(BurgerContext);
+
+  const openModal = () => {
+    orderCreationApi(
+      dataIngredients.map((ingredientsItem) => ingredientsItem._id)
+    )
+      .then((item) => {
+        setModalState(true);
+        setorderNumState(item);
+      })
+      .catch((err) => console.log(`Ошибка запроса ${err}`));
+  };
 
   const initialArg = {
     buns: {},
@@ -97,15 +110,15 @@ export function BurgerConstructor() {
           htmlType="button"
           type="primary"
           size="large"
-          onClick={() => setOpenModal(true)}
+          onClick={() => openModal()}
         >
           Нажми на меня
         </Button>
       </div>
 
-      {openModal && (
-        <Modal setOpenModal={setOpenModal}>
-          <OrderDetails />
+      {modalState && (
+        <Modal setOpenModal={setModalState}>
+          <OrderDetails orderNumber={orderNumState.order.number} />
         </Modal>
       )}
     </section>

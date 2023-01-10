@@ -34,7 +34,7 @@ export const Modal = ({ setOpenModal, children }) => {
   );
 };
 
-ModalOverlay.propTypes = {
-  setOpenModal: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
-};
+// ModalOverlay.propTypes = {
+//   setOpenModal: PropTypes.func.isRequired,
+//   children: PropTypes.element.isRequired,
+// };
