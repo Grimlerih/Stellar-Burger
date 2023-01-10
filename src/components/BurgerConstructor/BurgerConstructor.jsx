@@ -1,4 +1,4 @@
-import { useState, useContext, useMemo, useReducer, useEffect } from "react";
+import { useState, useContext, useReducer, useEffect } from "react";
 import styles from "../BurgerConstructor/BurgerConstructor.module.css";
 import {
   ConstructorElement,
@@ -6,7 +6,6 @@ import {
   CurrencyIcon,
   Button,
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import PropTypes from "prop-types";
 import { Modal } from "../Modal/Modal";
 import { OrderDetails } from "../OrderDetails/OrderDetails";
 import { BurgerContext } from "../services/burgerContext.js";
@@ -124,7 +123,3 @@ export function BurgerConstructor() {
     </section>
   );
 }
-
-// BurgerConstructor.propTypes = {
-//   dataIngredients: PropTypes.array.isRequired,
-// };
