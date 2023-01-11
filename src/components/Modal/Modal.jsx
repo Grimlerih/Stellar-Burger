@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./Modal.module.css";
 import { ModalOverlay } from "../ModalOverlay/ModalOverlay";
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
@@ -34,7 +34,7 @@ export const Modal = ({ setOpenModal, children }) => {
   );
 };
 
-ModalOverlay.propTypes = {
+Modal.propTypes = {
   setOpenModal: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
 };

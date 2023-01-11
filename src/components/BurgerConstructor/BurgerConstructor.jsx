@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext, useReducer, useEffect } from "react";
 import styles from "../BurgerConstructor/BurgerConstructor.module.css";
 import {
   ConstructorElement,
@@ -6,12 +6,59 @@ import {
   CurrencyIcon,
   Button,
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import PropTypes from "prop-types";
 import { Modal } from "../Modal/Modal";
 import { OrderDetails } from "../OrderDetails/OrderDetails";
+import { BurgerContext } from "../services/burgerContext.js";
+import { orderCreationApi } from "../utils/Api.js";
 
-export function BurgerConstructor({ data }) {
-  const [openModal, setOpenModal] = useState(false);
+export function BurgerConstructor() {
+  const [modalState, setModalState] = useState(false);
+  const [orderNumState, setorderNumState] = useState();
+  const dataIngredients = useContext(BurgerContext);
+
+  const openModal = () => {
+    orderCreationApi(
+      dataIngredients.map((ingredientsItem) => ingredientsItem._id)
+    )
+      .then((item) => {
+        setModalState(true);
+        setorderNumState(item);
+      })
+      .catch((err) => console.log(`Ошибка запроса ${err}`));
+  };
+
+  const initialArg = {
+    buns: {},
+    burgerIngredients: [],
+    totalPrice: 0,
+  };
+
+  function reducer(state, action) {
+    const buns = dataIngredients.find((item) => item.type === "bun");
+    const burgerIngredients = dataIngredients.filter(
+      (item) => item.type !== "bun"
+    );
+
+    const totalPrice =
+      burgerIngredients.reduce((prev, current) => prev + current.price, 0) +
+      state.buns.price * 2;
+
+    switch (action.type) {
+      case "initiate":
+        return { ...state, burgerIngredients, buns };
+      case "count":
+        return { ...state, totalPrice };
+      default:
+        throw new Error(`Wrong type of action: ${action.type}`);
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer, initialArg);
+
+  useEffect(() => {
+    dispatch({ type: "initiate" });
+    dispatch({ type: "count" });
+  }, [dataIngredients]);
 
   return (
     <section className={styles.burgerConstSection}>
@@ -19,12 +66,12 @@ export function BurgerConstructor({ data }) {
         <ConstructorElement
           type="top"
           isLocked={true}
-          text={"Краторная булка N-200i (верх)"}
-          price={200}
-          thumbnail="https://code.s3.yandex.net/react/code/bun-02-mobile.png"
+          text={`${state.buns.name} верх`}
+          price={state.buns.price}
+          thumbnail={state.buns.image_mobile}
         />
         <ul className={styles.burgerConstList}>
-          {data
+          {dataIngredients
             .filter((obj) => {
               if (obj.type !== "bun") {
                 return obj;
@@ -45,36 +92,34 @@ export function BurgerConstructor({ data }) {
         <ConstructorElement
           type="bottom"
           isLocked={true}
-          text="Краторная булка N-200i (низ)"
-          price={200}
-          thumbnail="https://code.s3.yandex.net/react/code/bun-02-mobile.png"
+          text={`${state.buns.name} (низ)`}
+          price={state.buns.price}
+          thumbnail={state.buns.image_mobile}
         />
       </div>
 
       <div className={styles.priceContainer}>
         <div className={styles.price}>
-          <p className="text text_type_digits-medium mr-2">7890</p>
+          <p className="text text_type_digits-medium mr-2">
+            {state.totalPrice}
+          </p>
           <CurrencyIcon type="primary" />
         </div>
         <Button
           htmlType="button"
           type="primary"
           size="large"
-          onClick={() => setOpenModal(true)}
+          onClick={() => openModal()}
         >
           Нажми на меня
         </Button>
       </div>
 
-      {openModal && (
-        <Modal setOpenModal={setOpenModal}>
-          <OrderDetails />
+      {modalState && (
+        <Modal setOpenModal={setModalState}>
+          <OrderDetails orderNumber={orderNumState.order.number} />
         </Modal>
       )}
     </section>
   );
 }
-
-BurgerConstructor.propTypes = {
-  data: PropTypes.array.isRequired,
-};

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import styles from "./BurgerIngredients.module.css";
 import TabBurgerIngredients from "../TabBurgerIngredients/TabBurgerIngredients";
 import {
@@ -8,10 +8,12 @@ import {
 import PropTypes from "prop-types";
 import { Modal } from "../Modal/Modal";
 import { IngredientDetails } from "../IngredientDetails/IngredientDetails ";
+import { BurgerContext } from "../services/burgerContext.js";
 
-export function BurgerIngredients({ data }) {
+export function BurgerIngredients() {
   const [openModal, setOpenModal] = useState(false);
   const [ingridient, setIngridient] = useState();
+  const dataIngredients = useContext(BurgerContext);
 
   const refBuns = useRef();
   const refSauces = useRef();
@@ -47,7 +49,7 @@ export function BurgerIngredients({ data }) {
             Булки
           </h2>
           <ul className={`mt-6  ${styles.ingredients}`}>
-            {data
+            {dataIngredients
               .filter((obj) => {
                 if (obj.type === "bun") {
                   return obj;
@@ -86,7 +88,7 @@ export function BurgerIngredients({ data }) {
             Соусы
           </h2>
           <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
-            {data
+            {dataIngredients
               .filter((obj) => {
                 if (obj.type === "sauce") {
                   return obj;
@@ -125,7 +127,7 @@ export function BurgerIngredients({ data }) {
             Начинки
           </h2>
           <ul className={`mt-6 mb-10 ${styles.ingredients}`}>
-            {data
+            {dataIngredients
               .filter((obj) => {
                 if (obj.type === "main") {
                   return obj;
@@ -167,7 +169,3 @@ export function BurgerIngredients({ data }) {
     </section>
   );
 }
-
-BurgerIngredients.propTypes = {
-  data: PropTypes.array.isRequired,
-};
