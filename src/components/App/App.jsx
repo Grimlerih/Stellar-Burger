@@ -14,8 +14,8 @@ function App() {
       .then((res) => {
         setDataIngredients([...res.data]);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        alert("Ошибка 404");
       });
   }, []);
 

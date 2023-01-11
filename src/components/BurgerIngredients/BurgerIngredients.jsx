@@ -169,7 +169,3 @@ export function BurgerIngredients() {
     </section>
   );
 }
-
-// BurgerIngredients.propTypes = {
-//   data: PropTypes.array.isRequired,
-// };
